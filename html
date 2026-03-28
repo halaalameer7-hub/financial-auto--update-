@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Auto Update</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Financial Auto Update</h1>
+  <div>
+    <label>Revenue: $</label>
+    <input type="number" id="revenue" placeholder="Enter Revenue">
+  </div>
+  <div>
+    <label>Expenses: $</label>
+    <input type="number" id="expenses" placeholder="Enter Expenses">
+  </div>
+  <button onclick="updateFinancials()">Update</button>
+
+  <h2>Financial Table</h2>
+  <table border="1" id="financialTable">
+    <tr>
+      <th>Metric</th>
+      <th>Previous Period</th>
+      <th>Current Period</th>
+      <th>Variance ($)</th>
+      <th>Variance (%)</th>
+    </tr>
+    <tr>
+      <td>Total Revenue</td>
+      <td id="prevRevenue">0</td>
+      <td id="currRevenue">0</td>
+      <td id="revVariance">$0</td>
+      <td id="revPercent">0%</td>
+    </tr>
+    <tr>
+      <td>Total Expenses</td>
+      <td id="prevExpenses">0</td>
+      <td id="currExpenses">0</td>
+      <td id="expVariance">$0</td>
+      <td id="expPercent">0%</td>
+    </tr>
+    <tr>
+      <td>Net Profit</td>
+      <td id="prevProfit">0</td>
+      <td id="currProfit">0</td>
+      <td id="profitVariance">$0</td>
+      <td id="profitPercent">0%</td>
+    </tr>
+    <tr>
+      <td>Net Profit Margin</td>
+      <td id="prevMargin">0%</td>
+      <td id="currMargin">0%</td>
+      <td colspan="2"></td>
+    </tr>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>
