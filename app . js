@@ -1,0 +1,48 @@
+let prevRevenue = 0;
+let prevExpenses = 0;
+
+function updateFinancials() {
+  const revenue = parseFloat(document.getElementById("revenue").value);
+  const expenses = parseFloat(document.getElementById("expenses").value);
+
+  if (isNaN(revenue) || isNaN(expenses)) {
+    alert("Please enter valid numbers!");
+    return;
+  }
+
+  const profit = revenue - expenses;
+  const prevProfit = prevRevenue - prevExpenses;
+
+  const revVariance = revenue - prevRevenue;
+  const expVariance = expenses - prevExpenses;
+  const profitVariance = profit - prevProfit;
+
+  const revPercent = prevRevenue ? ((revVariance / prevRevenue) * 100).toFixed(2) : 0;
+  const expPercent = prevExpenses ? ((expVariance / prevExpenses) * 100).toFixed(2) : 0;
+  const profitPercent = prevProfit ? ((profitVariance / prevProfit) * 100).toFixed(2) : 0;
+
+  const currMargin = ((profit / revenue) * 100).toFixed(2);
+  const prevMargin = prevRevenue ? ((prevProfit / prevRevenue) * 100).toFixed(2) : 0;
+
+  document.getElementById("prevRevenue").innerText = prevRevenue;
+  document.getElementById("currRevenue").innerText = revenue;
+  document.getElementById("revVariance").innerText = `$${revVariance}`;
+  document.getElementById("revPercent").innerText = `${revPercent}%`;
+
+  document.getElementById("prevExpenses").innerText = prevExpenses;
+  document.getElementById("currExpenses").innerText = expenses;
+  document.getElementById("expVariance").innerText = `$${expVariance}`;
+  document.getElementById("expPercent").innerText = `${expPercent}%`;
+
+  document.getElementById("prevProfit").innerText = prevProfit;
+  document.getElementById("currProfit").innerText = profit;
+  document.getElementById("profitVariance").innerText = `$${profitVariance}`;
+  document.getElementById("profitPercent").innerText = `${profitPercent}%`;
+
+  document.getElementById("prevMargin").innerText = `${prevMargin}%`;
+  document.getElementById("currMargin").innerText = `${currMargin}%`;
+
+  // Update previous values for next period
+  prevRevenue = revenue;
+  prevExpenses = expenses;
+}
